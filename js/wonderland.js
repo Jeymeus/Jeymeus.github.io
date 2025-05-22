@@ -9,16 +9,30 @@ const form = document.getElementById("hexForm");
 const input = document.getElementById("decodedInput");
 const error = document.getElementById("errorMsg");
 
-const x = "NEM0MDVGNjMzNzI2OTRFOQ==";
-
+const x = "TEBfVjNyaXTDqQ==";
 const t = "YXdha2VuZWQuaHRtbA==";
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const userHex = input.value.trim().toUpperCase();
-    const expectedHex = atob(x).toUpperCase();
 
-    if (userHex === expectedHex) {
+    const hexToText = hex => {
+        return hex.match(/.{1,2}/g)
+            .map(byte => String.fromCharCode(parseInt(byte, 16)))
+            .join('');
+    };
+
+    const userHex = input.value.trim();
+    const userDecoded = hexToText(userHex)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+
+    const expected = atob(x)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+
+    if (userDecoded === expected) {
         const url = atob(t);
         window.location.href = url;
     } else {
@@ -26,3 +40,4 @@ form.addEventListener("submit", function (e) {
         input.value = "";
     }
 });
+
