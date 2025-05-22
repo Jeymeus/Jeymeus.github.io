@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Le Terrier du Lapin Blanc</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="css/matrix.css" rel="stylesheet" />
+</head>
+
+<body class="bg-black text-green-400 font-mono min-h-screen flex flex-col justify-center items-center p-6">
+    <div
+        class="w-full max-w-2xl text-center border border-green-500 p-6 rounded shadow-lg shadow-green-700/50 bg-black/80">
+
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6 matrix-text-shadow">Le Terrier du Lapin Blanc</h1>
+        <h2 class="text-green-300 mb-6">La Pilule Bleue : L'Ignorance est une Douce Chaleur</h2>
+
+        <img src="assets/lapinBlanc.png" alt="@LaFinDuFichier"
+            class="mx-auto mb-6 rounded-lg opacity-75" />
+
+        <p class="mb-6 text-lg">
+            Tu suis le Lapin Blanc dans un dédale de couloirs numériques. Des fragments de code flottent dans l'air.
+            L'un d'eux semble important, un message laissé à ton intention.
+        </p>
+
+        <p class="mb-6 text-green-300 text-center">
+            Le Lapin Blanc a laissé une trace. Pas une empreinte... un message.
+        </p>
+          
+        <form id="hexForm" class="space-y-6">
+            <div>
+                <label for="hexCodeInput" class="block text-sm font-medium text-green-200 mb-2">
+                    Chiffre le message :
+                </label>
+                <input type="text" id="hexCodeInput" placeholder="Qu'est ce qui t'attend de l'autre côté ?"
+                    class="bg-gray-800 text-green-300 placeholder-gray-600 px-4 py-2 rounded w-full focus:outline-none" />
+            </div>
+
+            <p id="errorMsg" class="text-red-400 text-sm hidden">
+                Le code est incorrect. Le Lapin Blanc attend le bon message.
+            </p>
+
+            <div class="text-center">
+                <button type="submit"
+                    class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-6 rounded transition">
+                    Envoyer la réponse
+                </button>
+            </div>
+        </form>
+    </div>
+    <p class="mt-2 text-xs text-gray-500">
+Ne m'oublie pas sous ma forme orginale. Je suis là pour te rappeler que la réalité est plus complexe qu'elle n'y paraît.
+    </p>
+
+</body>
+
+</html>

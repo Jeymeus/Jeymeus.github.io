@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>La Matrice - Final</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            color: #00ff00;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #console {
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px #00ff00;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0.7;
+            }
+        }
+
+        .pill {
+            margin-top: 2rem;
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: red;
+            color: white;
+            border-radius: 999px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 10px red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="console"></div>
+
+    <noscript>
+        <div id="console">
+            <h2>Bravo, tu as sauvé l'Élu.</h2>
+            <p>Tu as désactivé le JavaScript et rechargé la page. Tu peux maintenant nous rejoindre.</p>
+            <a href="reveal.html" class="pill">Prendre la pilule rouge</a>
+        </div>
+    </noscript>
+
+    <script>
+        const lines = [
+            "Neo est tombé...",
+            "Une pluie de balles le transperce. L'agent Smith est trop rapide.",
+            "Mais tout n'est pas perdu...",
+            "Quelqu’un peut encore inverser le cours du destin.",
+            "Certains murs ne se franchissent qu’en sortant du système.",
+            "Coupe le lien. Relance le flux.",
+            "Et observe ce que la Matrice cherche à te cacher..."
+        ];
+
+        const container = document.getElementById('console');
+        let index = 0;
+
+        function writeLine() {
+            if (index < lines.length) {
+                const p = document.createElement('p');
+                p.textContent = lines[index];
+                container.appendChild(p);
+                index++;
+                setTimeout(writeLine, 2000);
+            }
+        }
+
+        writeLine();
+    </script>
+
+</body>
+
+</html>

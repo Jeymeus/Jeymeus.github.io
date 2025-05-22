@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="whiteRabbit" content="take-pill-blue initial-road=1.0" />
+    <meta name="moreGame" content="take-pill-red hard-road=1.0" />
+    <title>Le Choix</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="css/matrix.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-white font-mono min-h-screen flex flex-col justify-center items-center p-6">
+
+    <h1 class="text-3xl sm:text-4xl font-bold mb-6 matrix-text-shadow">Ceci est ta dernière chance.</h1>
+    <div class="w-full max-w-2xl text-center p-6 rounded shadow-lg shadow-green-700/50 bg-black/80">
+        <p class="text-lg text-green-500 mb-10">
+            Tu prends la pilule bleue, l'histoire s'arrête là.<br />
+            Tu te réveilles dans ton lit, et tu crois ce que tu veux croire.<br />
+            Tu prends la pilule rouge, tu restes au Pays des Merveilles,<br />
+            et je te montre jusqu'où va le terrier du lapin.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-8">
+            <button id="pill-button-blue" disabled data-key="d29uZGVybGFuZC5odG1s
+            " class="pill-button pill-blue pill-disabled">
+                Pilule Bleue
+            </button>
+
+            <button id="pill-button-red" disabled data-key="Y29uc3RydWN0Lmh0bWw=
+            " class="pill-button pill-red pill-disabled">
+                Pilule Rouge
+            </button>
+        </div>
+
+        <p class="mt-12 text-xs text-gray-500">
+            Les choix sont gelés. Seuls les curieux avancent.
+            Deux boutons, deux chemins. Mais chacun est verrouillé.
+        </p>
+    </div>
+
+    <script src="js/realityCheck.js"></script>
+</body>
+
+</html>

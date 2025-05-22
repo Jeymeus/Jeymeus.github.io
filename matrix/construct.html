@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trinity : Suis-moi.</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="css/matrix.css" rel="stylesheet" />
+</head>
+
+<body class="bg-black text-green-400 font-mono min-h-screen flex flex-col justify-center items-center p-6">
+    <div
+        class="w-full max-w-2xl text-center border border-green-500 p-6 rounded shadow-lg shadow-green-700/50 bg-black/80">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6 matrix-text-shadow">Trinity : Suis-moi.</h1>
+        <h2 class="text-lg text-green-300 mb-8">La Pilule Rouge : Bienvenue dans le Désert du Réel</h2>
+
+        <p class="mb-6 text-green-400">
+            Trinity te regarde, un sourire entendu aux lèvres. "Bravo, Neo. Je savais que tu nous rejoindrais.<br />
+            Une dernière étape t'attend avant de te réveiller complètement et d'ouvrir les yeux sur la vérité."
+        </p>
+        <p class="mb-8 text-green-500">
+            "Le signal pour passer est subtil, presque invisible. Seuls ceux qui cherchent activement le trouveront."
+        </p>
+
+        <form id="finalForm" data-key="YXdha2VuZWQuaHRtbA==" class="space-y-6">
+            <div class="relative">
+                <label for="hiddenWord" class="block text-sm font-medium text-green-200 mb-2">
+                    Murmure le mot de passe pour me voir :
+                </label>
+                <input type="text" id="hiddenWord" name="hiddenWord"
+                    placeholder="Quel est le premier pas vers la conscience ?" class="bg-gray-800 text-gray-800 placeholder-gray-800 px-4 py-2 rounded w-full focus:outline-none focus:text-green-300 focus:placeholder-gray-500 cursor-default
+                    " style="background-color: #2D3748; color: #2D3748" />
+                </div>
+                
+                <div class="relative">
+                    <a href="wakeUp.html" style="position: absolute; inset: 0; z-index: 10;" class="block w-full h-full"
+                    title="safeZone"></a>
+                    <button type="submit" style="z-index: 1;"
+                    class="relative w-full bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded transition">
+                    Prononcer le mot
+                </button>
+            </div>
+            
+            
+            <p id="errorMsg" class="text-red-400 text-sm hidden">
+                Ce n’est pas le mot. Trinity attend le signal correct.
+            </p>
+        </form>
+    </div>
+    <p class="mt-2 text-xs text-gray-500">
+        "Regarde au-delà de la surface. Le code ne ment pas."
+    </p>
+
+    <script src="js/construct.js"></script>
+
+</body>
+
+</html>

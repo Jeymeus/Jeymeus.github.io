@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trinity - Entrainement Pilotage</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("assets/helicopter.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: monospace;
+            color: #00ff00;
+        }
+
+        .zone {
+            border: 2px dashed #00ff00;
+            padding: 2rem;
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .drag-item-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 1rem;
+        }
+
+        .drag-item {
+            padding: 1rem 2rem;
+            background-color: #1a1a1a;
+            border: 1px solid #00ff00;
+            cursor: grab;
+            z-index: 1;
+        }
+
+        .trap-input {
+            position: absolute;
+            inset: 0;
+            background-color: transparent;
+            border: none;
+            z-index: 10;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="p-6">
+    <h1 class="text-2xl text-center mb-6">Trinity : "Je vais devoir apprendre vite à piloter !"</h1>
+    <p class="mb-4 text-center">Fais glisser les bons objets dans les bonnes zones pour activer l'hélico. Attention aux
+        interférences...</p>
+
+    <div class="flex flex-wrap justify-center items-start gap-16 mt-20 bg-black bg-opacity-40 p-8 rounded">
+        <div>
+            <h2 class="text-green-400 mb-4 text-center">Objets :</h2>
+            <div class="drag-item-wrapper">
+                <input id="trap-key" type="button" class="trap-input">
+                <div id="key" class="drag-item" draggable="true">Clé</div>
+            </div>
+            <div class="drag-item-wrapper">
+                <input id="trap-lever" type="button" class="trap-input">
+                <div id="lever" class="drag-item" draggable="true">Levier</div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-green-400 mb-4 text-center">Zones :</h2>
+            <div id="ignitionZone" class="zone">Contacteur</div>
+            <div id="controlZone" class="zone">Commandes de vol</div>
+        </div>
+    </div>
+
+    <script src="js/helicopter.js"></script>
+
+</body>
+
+</html>

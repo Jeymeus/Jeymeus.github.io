@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wake up, Neo...</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="css/matrix.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-green-400 font-mono min-h-screen flex flex-col justify-center items-center p-4">
+
+  <div class="w-full max-w-3xl mx-auto">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center matrix-text-shadow animate-pulse-slow">Wake
+      up, Neo...</h1>
+    <h2 class="text-lg sm:text-xl text-center text-green-300 mb-8">The Matrix Has You</h2>
+
+    <main
+      class="bg-gray-900 bg-opacity-75 p-6 sm:p-8 rounded-lg shadow-2xl shadow-green-600/40 border border-green-700/50">
+      <div class="text-center max-w-xl mx-auto">
+        <p class="text-xl mb-6">Bienvenue, Mr. Anderson. Ou devrions-nous dire... Neo?</p>
+        <p class="mb-8">
+          Tu as toujours senti qu'il y avait quelque chose qui n'allait pas dans le monde.
+          Une écharde dans ton esprit. Une vérité troublante t'attend.
+        </p>
+
+        <button id="startBtn" class="bg-green-500 text-black px-6 py-3 rounded hover:bg-green-400 transition">Es-tu prêt
+          à voir à quel point le terrier du lapin est profond ?</button>
+
+        <form id="passwordForm" class="mt-6 hidden flex flex-col items-center" onsubmit="return false;">
+          <input id="passwordInput" type="text" placeholder="Entre le mot de passe"
+            class="mb-4 px-4 py-2 rounded text-black" />
+          <button id="submitBtn"
+            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500 transition">Valider</button>
+          <p id="errorMsg" class="text-red-400 mt-4 hidden">Mot de passe incorrect. La Matrice te retient...</p>
+        </form>
+      </div>
+    </main>
+
+    <footer class="text-center mt-12 text-sm text-gray-600">
+      <p>&gt; System Integrity: Questionable_</p>
+      <p>&gt; Connection: Secured (theoretically)_</p>
+    </footer>
+  </div>
+
+
+  <script>
+    console.log("%c---------------------- M A T R I X ---------------------", "color: #00ff00; font-weight: bold; font-size: 14px;");
+    console.log("%c--------------------------------------------", "color: gray");
+    console.log("%cVous cherchez une clef.", "color: gray");
+    console.log("%cElle n'est pas dans le code source, ni dans l’URL.", "color: gray");
+    console.log("%cMais dans ce qui relie la logique au réel.", "color: gray");
+    console.log("%cCe n’est ni un mot, ni un chiffre seul.", "color: gray");
+    console.log("%cJuste une combinaison que seuls les observateurs peuvent composer.", "color: gray");
+    console.log("%c--------------------------------------------", "color: gray");
+
+    document.getElementById("startBtn").addEventListener("click", () => {
+      document.getElementById("startBtn").classList.add("hidden");
+      document.getElementById("passwordForm").classList.remove("hidden");
+    });
+
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      const input = document.getElementById("passwordInput").value.trim().toLowerCase();
+      const matrixText = "puzzlephone"
+      const error = document.getElementById("errorMsg");
+
+      if (input === matrixText) {
+        window.location.href = `${matrixText}.html`;
+      } else {
+        error.classList.remove("hidden");
+        document.getElementById("passwordInput").value = "";
+      }
+    });
+  </script>
+</body>
+
+</html>

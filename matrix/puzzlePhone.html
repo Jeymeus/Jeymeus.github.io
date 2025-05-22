@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📞 Le Téléphone Sonne...</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="css/matrix.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-green-400 font-mono min-h-screen flex flex-col justify-center items-center p-6">
+
+    <div class="w-full max-w-3xl mx-auto text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 matrix-text-shadow">Le téléphone sonne...</h1>
+        <h2 class="text-lg sm:text-xl text-green-300 mb-6">Qui est à l'appareil ?</h2>
+
+        <p class="mb-6 text-lg">
+            Tu es dans un appartement abandonné. Un téléphone sonne sans discontinuer.
+            Chaque sonnerie est une opportunité... ou un piège.
+        </p>
+        <p class="mb-8 text-sm text-green-500">
+            Avant d'aller plus loin, nous devons nous assurer que tu es prêt, et que tu es digne de nous rejoindre.
+            Inspecte les signaux. Certains sont masqués. La console est ton alliée.
+        </p>
+
+        <div class="space-y-4" id="linkContainer">
+            <a id="link1" data-key="d2FrZXVwLmh0bWw="
+                class="block p-4 border border-green-600 rounded-md opacity-70 hover:opacity-100 hover:bg-green-700 hover:text-black transition">Appel
+                entrant : Morpheus</a>
+            <a id="link2" data-key="d2FrZXVwLmh0bWw="
+                class="hidden block p-4 border border-green-600 rounded-md opacity-70 hover:opacity-100 hover:bg-green-700 hover:text-black transition">Ligne
+                sécurisée ?</a>
+                <a id="link4" data-key="dGFrZVBob25lKCdsaW5rNCcp"
+                class="hidden block p-4 border border-yellow-400 rounded-md animate-pulse hover:bg-green-700 hover:text-black transition">
+                Message : Inconnu
+            <a id="link3" data-key="d2FrZXVwLmh0bWw="
+                class="block p-4 border border-green-600 rounded-md hover:bg-green-700 hover:text-black transition">Trinity
+                : "Neo, suis le lapin blanc."</a>
+            </a>
+            <a id="link5" data-key="d2FrZXVwLmh0bWw="
+            class="block p-4 border border-green-600 rounded-md opacity-70 hover:opacity-100 hover:bg-green-700 hover:text-black transition">Numéro
+            privé</a>
+        </div>
+
+        <p class="mt-8 text-xs text-gray-500">
+            Oracle : Inspecte, Trouve, Révèle-le. 
+        </p>
+    </div>
+
+    <script src="js/puzzlephone.js"></script>
+</body>
+
+</html>

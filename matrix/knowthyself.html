@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Know Thyself</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: monospace;
+        }
+
+        .terminal-line::before {
+            content: "> ";
+            color: #00ff00;
+        }
+
+        .blinking-cursor::after {
+            content: "_";
+            animation: blink 1s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+            to {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-3xl bg-black border border-green-600 p-6 rounded shadow-lg">
+        <div id="terminal" class="space-y-2 text-green-400">
+            <p class="terminal-line">Connexion sécurisée à la Matrice...</p>
+            <p class="terminal-line">Chargement de la simulation : Entraînement mental et physique</p>
+            <p class="terminal-line">Participant : Neo</p>
+            <p class="terminal-line">Opposant : Morpheus</p>
+        </div>
+        <div id="input-line" class="terminal-line blinking-cursor mt-4">&nbsp;</div>
+    </div>
+
+    <script>
+        console.log("%c---------------------- M A T R I X ---------------------", "color: #00ff00; font-weight: bold; font-size: 14px;");
+        console.log("%c----------------------------------------------------------", "color: gray");
+        console.log("%c[Oracle Access] Tout est dit", "color: gray");
+        console.log("%cTrouve-moi, où le temps t'aidera", "color: gray");
+        console.log("%c----------------------------------------------------------", "color: gray");
+        const terminal = document.getElementById("terminal");
+        const inputLine = document.getElementById("input-line");
+
+        const lines = [
+            "Morpheus : Montre-moi ce que tu as appris.",
+            "Neo engage le combat...",
+            "Blocage, esquive, vitesse : l'entraînement est intense.",
+            "Morpheus : Tu te bats comme quelqu’un qui croit comprendre.",
+            "Neo : Alors que dois-je faire ?",
+            "Morpheus : Te connaître toi-même.",
+            "Pause du programme...",
+            "Dernière instruction système :",
+            "Je suis à la racine de tout.",
+            "Je suis la SEULE, et personne 'avant' me précède."
+        ];
+
+        let index = 0;
+
+        function typeNextLine() {
+            if (index < lines.length) {
+                const line = document.createElement("p");
+                line.className = "terminal-line";
+                line.textContent = lines[index];
+                terminal.appendChild(line);
+                index++;
+                setTimeout(typeNextLine, 1700);
+            } else {
+                inputLine.textContent = "Système en veille...";
+
+                setTimeout(() => {
+                    const p = "ZGF0YS50eHQ=";
+                    const line = document.createElement("p");
+                    line.className = "terminal-line";
+                    line.textContent = "Nom de l'entité : " + atob(p);
+                    terminal.appendChild(line);
+                }, 60000);
+            }
+        }
+
+        setTimeout(typeNextLine, 1500);
+    </script>
+
+</body>
+
+</html>

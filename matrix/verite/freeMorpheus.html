@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="action" data-fn="lancer" data-value="deagle">
+    <meta name="action" data-fn="grenade" data-value="frag">
+    <meta name="action" data-fn="recharge" data-value="chargeur">
+    <meta name="action" data-fn="libererMorpheus" data-value="morpheus">
+    <title>Opération Morpheus</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: monospace;
+            color: #00ff00;
+        }
+
+        .background-wrapper {
+            background: url("../assets/freeMorpheus.jpg") no-repeat center center;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+        }
+
+        .terminal {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 800px;
+            margin: 5rem auto;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 20px #00ff00;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .terminal-line::before {
+            content: "> ";
+            color: #00ff00;
+        }
+
+        .console-input {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #00ff00;
+            width: 100%;
+            border: none;
+            padding: 0.75rem 1rem;
+            font-family: monospace;
+            font-size: 1rem;
+            outline: none;
+            margin-top: 1rem;
+            border: 1px solid #00ff00;
+            border-radius: 0.375rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-wrapper fixed inset-0 z-[-1]"></div>
+
+    <div class="terminal text-green-400" id="terminal">
+    </div>
+    <div class="max-w-2xl mx-auto">
+        <input id="commandInput" class="console-input" placeholder="Tape ta commande ici..." autofocus />
+    </div>
+
+    <script>
+        const terminal = document.getElementById("terminal");
+        const input = document.getElementById("commandInput");
+        const instructions = document.querySelectorAll('meta[name="action"]');
+
+        const steps = [
+            "Connexion au bâtiment fédéral...",
+            "Neo passe le portique. *Il sonne*",
+            "Trinity : Lance-moi une arme vite !",
+            "Système : En attente d'instruction...",
+            "→ Tape une commande..."
+        ];
+
+        const sequence = ["lancer", "grenade", "recharge", "libererMorpheus"];
+        let progress = 0;
+        let stepIndex = 0;
+
+        function log(text) {
+            const line = document.createElement("p");
+            line.className = "terminal-line";
+            line.innerHTML = text;
+            terminal.appendChild(line);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function typeSequence() {
+            if (stepIndex < steps.length) {
+                setTimeout(() => {
+                    log(steps[stepIndex]);
+                    stepIndex++;
+                    typeSequence();
+                }, 1500);
+            }
+        }
+
+        typeSequence();
+
+        input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                const val = input.value.trim();
+                input.value = "";
+                processCommand(val);
+            }
+        });
+
+        function processCommand(command) {
+            const fn = sequence[progress];
+            const expected = [...instructions].find(el => el.dataset.fn === fn)?.dataset.value;
+
+            if (!expected) {
+                log("⚠️ Problème : aucune donnée trouvée pour cette fonction !");
+                return;
+            }
+
+            const pattern = new RegExp(`^${fn}\\(["']${escapeReg(expected)}["']\\)$`);
+
+            if (pattern.test(command)) {
+                const responses = getResponseLines(fn);
+                const url = atob("aGVsaWNvcHRlci5odG1s");
+                showLines(responses, () => {
+                    progress++;
+                    if (progress === sequence.length) {
+                        setTimeout(() => {
+                            alert(`Extraction en cours... direction ${url}`);
+                            window.location.href = url;
+                        }, 1500);
+                    }
+                });
+            } else {
+                const knownFns = [...instructions].map(el => el.dataset.fn);
+                const matchedFn = knownFns.find(name => command.startsWith(name + "("));
+
+                if (matchedFn && matchedFn === fn) {
+                    log("Nom d'objet incorrect pour cette commande.");
+                } else {
+                    log("Commande invalide ou hors séquence. Essaie autre chose.");
+                }
+            }
+        }
+
+        function escapeReg(text) {
+            return text.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
+        }
+
+        function getResponseLines(fn) {
+            switch (fn) {
+                case "lancer":
+                    return [
+                        "Trinity : Parfait. Je couvre l'escalier.",
+                        "Neo attrape un chargeur supplémentaire...",
+                        "→ Tape une commande..."
+                    ];
+                case "grenade":
+                    return [
+                        "Neo : Cible verrouillée.",
+                        "Trinity enclenche le détonateur à distance...",
+                        "→ Tape une commande..."
+                    ];
+                case "recharge":
+                    return [
+                        "Trinity : C'est le moment, Neo !",
+                        "Neo recharge ses armes avec détermination.",
+                        "→ Tape une commande..."
+                    ];
+                case "libererMorpheus":
+                    return [
+                        "*Morpheus s’échappe de sa cellule sous une pluie de balles.*",
+                        "Trinity : Il est libre !",
+                        "Mission réussie. Redirection en cours..."
+                    ];
+                default:
+                    return [];
+            }
+        }
+
+        function showLines(lines, callback) {
+            let i = 0;
+            function nextLine() {
+                if (i < lines.length) {
+                    log(lines[i]);
+                    i++;
+                    setTimeout(nextLine, 1400);
+                } else {
+                    if (callback) callback();
+                }
+            }
+            nextLine();
+        }
+    </script>
+</body>
+
+</html>

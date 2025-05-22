@@ -1,0 +1,7 @@
+la page de lancement c'est index.html, tu peux la rechercher dans le projet ou :
+
+1 - clic droit sur matrix -> copier en tant que chemin d'acces 
+2 - coller dans l'url du nav 
+3 - retirer les " au début et à la fin 
+4 - rajouter /index.html
+5 - Let's Go
