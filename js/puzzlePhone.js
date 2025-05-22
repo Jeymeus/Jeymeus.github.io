@@ -10,6 +10,7 @@ console.log("%cUn fragment du code pourrait restaurer ce qui est dissimulé.", "
 console.log("%cLa connaissance est à portée : MDN getEl... classLi...", "color: gray");
 console.log("%chttps://developer.mozilla.org/fr/docs/Web/API/Element/classList", "color: gray");
 console.log("%c----------------------------------------------------------", "color: gray");
+console.log("%cTu es sur de toi ? tu as le bon, alors active le takePhone(*)", "color: gray");
 
 
 const α = document.querySelectorAll("a");
