@@ -1,5 +1,7 @@
 # 🕶️ The Matrix: RedPill Experience
 
+index.html pour démarrer le projet
+
 ## 🧠 Thème
 
 Bienvenue dans **The Matrix: RedPill Experience**, une aventure web interactive et cryptique inspirée de l’univers de *Matrix*. Vous incarnez **Mr. Anderson**, sur le point de faire un choix crucial : découvrir la vérité ou retourner à une réalité factice. Ce projet est un **jeu de piste numérique**, conçu comme un enchaînement d’énigmes réparties sur différentes pages HTML. Chaque niveau cache ses secrets dans le code source, le JavaScript, les cookies, ou d'autres artefacts du web.
